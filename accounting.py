@@ -31,16 +31,21 @@ melon_cost = 1.00
 the_file = open("customer-orders.txt")
 for line in the_file:
     order = line.split("|")
-    print(order)
-    print(order[2])
+    #print(order)
+    #print(order[2])
     customer_name = order[1]
     customer_paid = float(order[3])
-    expected_cost = int(order[2]) * melon_cost
+    expected_cost = float(order[2]) * melon_cost
     if expected_cost != order[3]:
         print(f"{customer_name} paid ${customer_paid:.2f},",
           f"expected ${expected_cost:.2f}"
           )
-
+    if float(expected_cost) > customer_paid:
+        print("Customer underpaid."
+          )
+    if float(expected_cost) < customer_paid:
+        print("Customer overpaid."
+          )
 """customer1_expected = customer1_melons * melon_cost
 if customer1_expected != customer1_paid:
     print(f"{customer1_name} paid ${customer1_paid:.2f},",
