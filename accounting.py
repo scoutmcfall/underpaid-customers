@@ -46,6 +46,7 @@ for line in the_file:
     if float(expected_cost) < customer_paid:
         print("Customer overpaid."
           )
+the_file.close()
 """customer1_expected = customer1_melons * melon_cost
 if customer1_expected != customer1_paid:
     print(f"{customer1_name} paid ${customer1_paid:.2f},",
