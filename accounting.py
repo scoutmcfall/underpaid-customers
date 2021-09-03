@@ -28,6 +28,8 @@ customer6_paid = 2.00"""
 #then generates the expected cost
 #then the if statement and print statement
 melon_cost = 1.00
+#def melon_payment_report():
+"""Iterate over report and compare expected to actual payments to find under and overpayment"""
 the_file = open("customer-orders.txt")
 for line in the_file:
     order = line.split("|")
@@ -38,15 +40,16 @@ for line in the_file:
     expected_cost = float(order[2]) * melon_cost
     if expected_cost != order[3]:
         print(f"{customer_name} paid ${customer_paid:.2f},",
-          f"expected ${expected_cost:.2f}"
-          )
+        f"expected ${expected_cost:.2f}"
+        )
     if float(expected_cost) > customer_paid:
         print("Customer underpaid."
-          )
+        )
     if float(expected_cost) < customer_paid:
         print("Customer overpaid."
-          )
+        )
 the_file.close()
+#melon_payment_report("customer-orders.txt")
 """customer1_expected = customer1_melons * melon_cost
 if customer1_expected != customer1_paid:
     print(f"{customer1_name} paid ${customer1_paid:.2f},",
